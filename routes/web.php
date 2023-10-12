@@ -48,4 +48,4 @@ Route::get('/userView/{user}', [UserController::class, 'show'])->name('user.info
 Route::get('/koleksi', [CollectionController::class, 'index'])->name('koleksi.daftarKoleksi');
 Route::get('/koleksiTambah', [CollectionController::class, 'create'])->name('koleksi.registrasi');
 Route::post('/koleksiStore', [CollectionController::class, 'store'])->name('koleksi.store');
-Route::get('/koleksiView/{collection}', [CollectionController::class, 'show'])->name('koleksi.infoPengguna');
+Route::get('/koleksiView/{collection}', [CollectionController::class, 'show'])->name('koleksi.infoKoleksi');

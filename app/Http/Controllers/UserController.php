@@ -43,7 +43,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::create([
+        $users = User::create([
             'username' => $request->username,
             'fullname' => $request->fullname,
             'email' => $request->email,
@@ -54,7 +54,7 @@ class UserController extends Controller
             'agama' => $request->agama,
             'gender' => $request->gender
         ]);
-        return view('user.daftarPengguna');
+        return redirect('/user');
     }
 
     /**
@@ -63,9 +63,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        return view('user.infoPengguna');
+        return view('user.infoPengguna', [
+            "user" => $user
+        ]);
     }
 
     /**

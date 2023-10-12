@@ -1,8 +1,8 @@
-/**
+{{-- /**
 * NIM: 6706220043
 * NAMA: Amri Elyasa
 * KELAS: 46-04
-*/
+*/ --}}
 
 <x-app-layout>
     <x-slot name="header">
@@ -37,7 +37,7 @@
                                 @foreach ($users as $num => $u)
                                 <tr class="border-b dark:border-neutral-500">
                                     <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $num+1 }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{$u->fullname}}</td>
+                                    <td class="whitespace-nowrap px-6 py-4"><a href="/userView/{{ $u->id }}">{{$u->fullname}}</a></td>
                                     <td class="whitespace-nowrap px-6 py-4">{{$u->email}}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{$u->address}}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{$u->phoneNumber}}</td>
@@ -56,6 +56,12 @@
                       </div>
 
                     {{-- Table user end --}}
+
+                    <div class="flex items-center justify-end mt-4">
+                      <x-primary-button class="ml-4">
+                        <a href="/userRegistration">Registrasi User</a>
+                      </x-primary-button>   
+                    </div>
                     
                 </div>
             </div>

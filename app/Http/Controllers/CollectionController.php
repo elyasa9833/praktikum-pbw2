@@ -41,12 +41,12 @@ class CollectionController extends Controller
      */
     public function store(Request $request)
     {
-        $collection = Collection::create([
+        $collections = Collection::create([
             'namaKoleksi' => $request->namaKoleksi,
             'jenisKoleksi' => $request->jenisKoleksi,
             'jumlahKoleksi' => $request->jumlahKoleksi,
         ]);
-        return view('koleksi.daftarKoleksi');
+        return redirect('/koleksi');
     }
 
     /**
@@ -55,9 +55,25 @@ class CollectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Collection $collection)
     {
-        return view('koleksi.infoKoleksi');
+        $jenisKoleksi = "";
+        switch ($collection->jenisKoleksi) {
+            case 1:
+                $jenisKoleksi = "buku";
+                break;
+            case 2:
+                $jenisKoleksi = "majalah";
+                break;
+            case 3:
+                $jenisKoleksi = "cakram digital";
+                break;
+            
+        }
+        return view('koleksi.infoKoleksi', [
+            "koleksi" => $collection,
+            "jenisKoleksi" => $jenisKoleksi
+        ]);
     }
 
     /**

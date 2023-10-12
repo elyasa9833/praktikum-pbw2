@@ -30,8 +30,19 @@
                                 @foreach ($collections as $num => $co)
                                 <tr class="border-b dark:border-neutral-500">
                                     <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $num+1 }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{$co->namaKoleksi}}</td>
-                                    <td class="whitespace-nowrap px-6 py-4">{{ $co->jenisKoleksi }}</td>
+                                    <td class="whitespace-nowrap px-6 py-4"><a href="/koleksiView/{{ $co->id }}">{{$co->namaKoleksi}}</a></td>
+                                    @switch($co->jenisKoleksi)
+                                      @case(1)
+                                      <td class="whitespace-nowrap px-6 py-4">buku</td>
+                                        @break
+                                      @case(2)
+                                      <td class="whitespace-nowrap px-6 py-4">majalah</td>
+                                        @break
+                                      @case(3)
+                                      <td class="whitespace-nowrap px-6 py-4">cakram digital</td>
+                                        @break                                        
+                                    @endswitch
+                                    
                                     <td class="whitespace-nowrap px-6 py-4">{{ $co->jumlahKoleksi }}</td>
                                     {{-- <td class="whitespace-nowrap px-6 py-4">
                                       <a href="#" class="inline-block rounded bg-indigo-500 text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-indigo-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-indigo-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-indigo-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] ">Edit</a>
@@ -47,7 +58,13 @@
                         </div>
                       </div>
                     {{-- Table user end --}}
-                    
+
+                  <div class="flex items-center justify-end mt-4">
+                    <x-primary-button class="ml-4">
+                      <a href="/koleksiTambah">Tambah Koleksi</a>
+                    </x-primary-button>   
+                  </div>
+                  
                 </div>
             </div>
         </div>
