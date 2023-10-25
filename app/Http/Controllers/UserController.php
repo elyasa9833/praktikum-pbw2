@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use App\DataTables\UsersDataTable;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * NIM: 6706220043
@@ -19,10 +20,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UsersDataTable $dataTable)
     {
-        $users = User::all();
-        return view('user.daftarPengguna', compact('users'));
+        return $dataTable->render('user.daftarPengguna');
     }
 
     /**
