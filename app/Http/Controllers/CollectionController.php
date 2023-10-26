@@ -82,9 +82,9 @@ class CollectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Collection $collection)
     {
-        //
+        return view("koleksi.editKoleksi", compact("collection"));
     }
 
     /**
@@ -94,9 +94,20 @@ class CollectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Collection $collection)
     {
-        //
+        // Validate the form data
+        $validatedData = $request->validate([
+            'namaKoleksi' => 'required',
+            'jenisKoleksi' => 'required',
+            'jumlahKoleksi' => 'required',
+        ]);
+
+        // Update the collection with the new data
+        $collection->update($request->except(['token_']));
+
+        // Redirect back to the collection view or any other desired page
+        return redirect()->route('koleksi.infoKoleksi', $collection->id);
     }
 
     /**

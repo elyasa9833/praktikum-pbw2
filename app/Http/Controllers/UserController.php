@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 use App\DataTables\UsersDataTable;
 use Illuminate\Support\Facades\Hash;
@@ -76,9 +77,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('user.editUser', compact('user'));
     }
 
     /**
@@ -88,9 +89,19 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $validatedData = $request->validate([
+            'fullName' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'address' => ['required', 'string', 'max:1000'],
+            'birthdate' => ['required', 'date'],
+            'phoneNumber' => ['required', 'string', 'max:20']
+        ]);
+
+        $user->update($validatedData);
+
+        return redirect()->route('user.infoPengguna', $user->id);
     }
 
     /**
