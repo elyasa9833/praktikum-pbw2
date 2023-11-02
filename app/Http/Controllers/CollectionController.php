@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Collection;
 use Illuminate\Http\Request;
-use App\DataTables\CollectionsDataTable;
-
 /**
  * NIM: 6706220043
  * NAMA: Amri Elyasa
@@ -18,9 +16,10 @@ class CollectionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(CollectionsDataTable $dataTable)
+    public function index()
     {
-        return $dataTable->render('koleksi.daftarKoleksi');
+        $collections = Collection::all();
+        return view('koleksi.daftarKoleksi', compact('collections'));
     }
 
     /**
