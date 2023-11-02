@@ -17,7 +17,7 @@ class TransactionFactory extends Factory
     public function definition()
     {
         return [
-            'UserIdPetugas' => mt_rand(0,3),
+            'UserIdPetugas' => mt_rand(1,3),
             'UserIdPeminjam' => mt_rand(4,9),
             'tanggalPinjam' => $this->faker->date(),
             // 'tanggalSelesai' => $this->faker->date()

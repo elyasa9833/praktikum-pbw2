@@ -7,7 +7,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Daftar Pengguna') }}
+            {{ __('Daftar Transaksi') }}
         </h2>
     </x-slot>
 
@@ -59,7 +59,7 @@
 
                     <div class="flex items-center justify-end mt-4">
                       <x-primary-button class="ml-4">
-                        <a href="/userRegistration">Registrasi User</a>
+                        <a href="/transaksiTambah">Tambah transaksi</a>
                       </x-primary-button>   
                     </div>
                     
