@@ -21,6 +21,11 @@ class Collection extends Model
         'jumlahKoleksi'
     ];
 
+    public function detail_transaction()
+    {
+        return $this->hasOne(DetailTransaction::class);
+    }
+
 
 
 

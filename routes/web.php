@@ -5,7 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\TransactionController;
-use App\Models\Transaction;
+use App\Http\Controllers\DetailTransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +57,13 @@ Route::get('/transaksi', [TransactionController::class, 'index'])->name('transak
 Route::get('/transaksiTambah', [TransactionController::class, 'create'])->name('transaksi.transaksiTambah');
 Route::post('/transaksiStore', [TransactionController::class, 'store'])->name('transaksi.store');
 Route::get('/transaksiView/{transaction}', [TransactionController::class, 'show'])->name('transaksi.transaksiView');
+
+// detail transaction
+Route::get('/detailTransactionKembalikan/{detailTransaction}', [DetailTransactionController::class, 'detailTransactionKembalikan'])->name('detailKembalikan');
+Route::post('/detailTransactionUpdate', [DetailTransactionController::class, 'update'])->name('detailUpdate');
+
+// get all
+Route::get('/getAllCollections', [CollectionController::class, 'getAllCollections'])->name('getAllCollections');
+Route::get('/getAllUsers', [UserController::class, 'getAllUsers'])->name('getAllUsers');
+Route::get('/getAllTransactions', [TransactionController::class, 'getAllTransactions'])->name('getAllTransactions');
+Route::get('/getAllDetailTransactions/{transactionId}', [DetailTransactionController::class, 'getAllDetailTransactions'])->name('getAllDetailTransactions');
