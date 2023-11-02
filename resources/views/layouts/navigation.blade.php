@@ -21,6 +21,9 @@
                     <x-nav-link :href="url('koleksi')" :active="request()->is('koleksi')">
                         {{ __('Koleksi') }}
                     </x-nav-link>
+                    <x-nav-link :href="url('transaksi')" :active="request()->is('transaksi')">
+                        {{ __('Transaksi') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -78,6 +81,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="url('koleksi')" :active="request()->is('koleksi')">
                 {{ __('Koleksi') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="url('transaksi')" :active="request()->is('transaksi')">
+                {{ __('Transaksi') }}
             </x-responsive-nav-link>
         </div>
 

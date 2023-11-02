@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CollectionController;
+use App\Http\Controllers\TransactionController;
+use App\Models\Transaction;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +51,9 @@ Route::get('/koleksi', [CollectionController::class, 'index'])->name('koleksi.da
 Route::get('/koleksiTambah', [CollectionController::class, 'create'])->name('koleksi.registrasi');
 Route::post('/koleksiStore', [CollectionController::class, 'store'])->name('koleksi.store');
 Route::get('/koleksiView/{collection}', [CollectionController::class, 'show'])->name('koleksi.infoKoleksi');
+
+// transaksi
+Route::get('/transaksi', [TransactionController::class, 'index'])->name('transaksi.daftarTransaksi');
+Route::get('/transaksiTambah', [TransactionController::class, 'create'])->name('transaksi.transaksiTambah');
+Route::post('/transaksiStore', [TransactionController::class, 'store'])->name('transaksi.store');
+Route::get('/transaksiView/{transaction}', [TransactionController::class, 'show'])->name('transaksi.transaksiView');

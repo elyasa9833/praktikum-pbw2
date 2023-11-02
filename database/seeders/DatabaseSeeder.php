@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
 use App\Models\Collection;
+use App\Models\Transaction;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory(9)->create();
         Collection::factory(5)->create();
+        Transaction::factory(5)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
