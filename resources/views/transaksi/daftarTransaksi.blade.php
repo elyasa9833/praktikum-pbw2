@@ -37,8 +37,8 @@
                                 @foreach ($transactions as $num => $t)
                                 <tr class="border-b dark:border-neutral-500">
                                     <td class="whitespace-nowrap px-6 py-4 font-medium">{{ $num+1 }}</td>
-                                    <td class="whitespace-nowrap px-6 py-4"><a href="#">{{$t->peminjam->fullname}}</a></td>
-                                    <td class="whitespace-nowrap px-6 py-4"><a href="#">{{$t->petugas->fullname}}</a></td>
+                                    <td class="whitespace-nowrap px-6 py-4"><a href="/transaksiView/{{$t->id}}">{{$t->peminjam->fullname}}</a></td>
+                                    <td class="whitespace-nowrap px-6 py-4">{{$t->petugas->fullname}}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{$t->tanggalPinjam}}</td>
                                     <td class="whitespace-nowrap px-6 py-4">{{$t->tanggalSelesai}}</td>
                                     {{-- <td class="whitespace-nowrap px-6 py-4">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,11 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        return view('transaksi.transaksiTambah', [
+            'users' => $users
+        ]);
+
     }
 
     /**
@@ -36,7 +41,13 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $transactions = Transaction::create([
+            'UserIdPetugas' => $request->UserIdPetugas,
+            'UserIdPeminjam' => $request->UserIdPeminjam,
+            'tanggalPinjam' => $request->tanggalPinjam
+        ]);
+
+        return redirect('/transaksi');
     }
 
     /**
@@ -45,9 +56,15 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Transaction $transaction)
     {
-        //
+        $users = User::all();
+        return view('transaksi.transaksiView', [
+            'users' => $users,
+            'peminjam' => $transaction->peminjam->fullname, 
+            'petugas' => $transaction->petugas->fullname, 
+            'tanggal_pinjam' => $transaction->tanggalPinjam,
+        ]);
     }
 
     /**
