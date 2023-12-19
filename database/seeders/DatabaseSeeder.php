@@ -17,17 +17,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'username' => 'elyasa',
-            'fullname' => 'Amri Elyasa',
-            'email' => 'elyasa@mail.com',
-            'password' => bcrypt('elyasa'),
-            'address' => 'San Fierro',
-            'phoneNumber' => 234323,
-            'birthdate' => '1998-01-01',
-            'agama' => 'islam ktp',
-            'gender' => '0'
-        ]);
+        // User::create([
+        //     'username' => 'elyasa',
+        //     'fullname' => 'Amri Elyasa',
+        //     'email' => 'elyasa@mail.com',
+        //     'password' => bcrypt('elyasa'),
+        //     'address' => 'San Fierro',
+        //     'phoneNumber' => 234323,
+        //     'birthdate' => '1998-01-01',
+        //     'agama' => 'islam ktp',
+        //     'gender' => '0'
+        // ]);
 
         User::factory(9)->create();
         Collection::factory(5)->create();

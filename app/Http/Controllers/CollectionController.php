@@ -119,4 +119,11 @@ class CollectionController extends Controller
     {
         //
     }
+
+    public function getCollections()
+    {
+        $collections = Collection::select('namaKoleksi', 'jenisKoleksi', 'jumlahKoleksi')->orderBy('namaKoleksi', 'ASC')->get();
+
+        return response()->json($collections, 200);
+    }
 }

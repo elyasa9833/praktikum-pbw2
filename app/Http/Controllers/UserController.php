@@ -113,4 +113,11 @@ class UserController extends Controller
     {
         //
     }
+
+    public function getUsers()
+    {
+        $users = User::select('fullname', 'username', 'email', 'phoneNumber', 'birthdate')->orderBy('fullname', 'ASC')->get();
+
+        return response()->json($users, 200);
+    }
 }

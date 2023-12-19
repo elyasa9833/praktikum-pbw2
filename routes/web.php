@@ -51,6 +51,7 @@ Route::get('/koleksi', [CollectionController::class, 'index'])->name('koleksi.da
 Route::get('/koleksiTambah', [CollectionController::class, 'create'])->name('koleksi.registrasi');
 Route::post('/koleksiStore', [CollectionController::class, 'store'])->name('koleksi.store');
 Route::get('/koleksiView/{collection}', [CollectionController::class, 'show'])->name('koleksi.infoKoleksi');
+Route::get('/koleksiUpdate/{collection}', [CollectionController::class, 'update'])->name('koleksi.infoKoleksi');
 
 // transaksi
 Route::get('/transaksi', [TransactionController::class, 'index'])->name('transaksi.daftarTransaksi');
